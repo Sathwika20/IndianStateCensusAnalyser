@@ -12,6 +12,8 @@ import java.util.stream.StreamSupport;
 
 public class CensusAnalyser {
     public static int loadCensusData(String filePathCSV) throws CensusAnalyserException {
+        if (!filePathCSV.contains(".csv"))
+            throw new CensusAnalyserException("This is invalid file type",CensusAnalyserException.ExceptionType.WRONG_FILE_TYPE);
         try (Reader reader = Files.newBufferedReader(Paths.get(filePathCSV))) {
             CsvToBean<IndiaCensusCSV> csvToBean = new CsvToBeanBuilder<IndiaCensusCSV>(reader)
                     .withType(IndiaCensusCSV.class)
@@ -23,5 +25,6 @@ public class CensusAnalyser {
         } catch (IOException exception) {
             throw new CensusAnalyserException(exception.getMessage(), CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
         }
+
     }
 }
