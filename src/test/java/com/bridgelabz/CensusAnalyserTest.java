@@ -6,9 +6,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class CensusAnalyserTest {
-    public static final String INDIAN_STATE_CENSUS_FILE = "C:\\Users\\Ramesh\\IdeaProjects\\IndianStateCensusAnalyserProblem\\src\\main\\resources\\IndiaStateCensusData.csv";
-
-
+    public static final String INDIAN_STATE_CENSUS_FILE = "C:\\Users\\gopir\\IdeaProjects\\IndianStateCensusAnalyserProblem\\src\\main\\resources\\IndiaStateCensusData.csv";
+    
     @Test
     public void GivenTheStateCodesCsvFile_IfHasCorrectNumberOfRecords_ShouldReturnTrue() {
         try {
@@ -18,4 +17,5 @@ public class CensusAnalyserTest {
             e.printStackTrace();
         }
     }
+
 }
