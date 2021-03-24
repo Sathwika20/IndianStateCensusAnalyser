@@ -56,5 +56,15 @@ public class CensusAnalyserTest {
             Assert.assertEquals(CensusAnalyserException.ExceptionType.WRONG_FILE_HEADER, e.type);
         }
     }
+    @Test
+    public void givenIndianStateCodeCSVFile_ReturnsCorrectRecords() {
+        try {
+            int count = CensusAnalyser.loadCodeData(INDIAN_STATE_CODE_FILE);
+            System.out.println(count);
+            Assert.assertEquals(37, count);
+        } catch (CensusAnalyserException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
